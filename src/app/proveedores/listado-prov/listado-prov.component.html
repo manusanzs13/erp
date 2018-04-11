@@ -1,0 +1,68 @@
+<div class="col-md-12">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <!-- Ponemos la ruta a inicio -->
+      <li class="breadcrumb-item">
+        <a routerLink="/inicio">Inicio</a>
+      </li>
+      <!-- Ponemos la ruta a compras -->
+      <li class="breadcrumb-item">
+        <a routerLink="/compras">Compras</a>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">Proveedores</li>
+    </ol>
+  </nav>
+</div>
+<div class="col-md-12 titulo">
+  <span>Proveedores</span>
+  <!-- Mensaje que aparece cuando borramos un proveedor -->
+  <span class="alert alert-warning" [@alerta]="estadoAlerta">{{mensaje}}</span>
+  <button class="btn btn-primary" routerLink="/crear-proveedor">
+    <i class="fas fa-plus-circle"></i>
+  </button>
+</div>
+<div class="col-md-12">
+  <table class="table table-bordered table-striped">
+    <tr>
+      <th>Nombre</th>
+      <th>CIF</th>
+      <th>Localidad</th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let proveedor of proveedores">
+      <td>{{proveedor.nombre}}</td>
+      <td>{{proveedor.cif}}</td>
+      <td>{{proveedor.localidad}}</td>
+      <td>
+        <!-- Con este botón actualizamos el proveedor que elijamos para modificar llendo al formulario exacto de cada parámetro -->
+        <button class="btn btn-success" routerLink="/editar-proveedor/{{proveedor._id}}">
+          <i class="fas fa-pen-square"></i>
+        </button>
+        <!-- Con este botón borramos el proveedor que elijamos mediante su id y nos pregunta en un modal -->
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" (click)="obtenerId(proveedor._id)">
+            <i class="fas fa-trash-alt"></i>
+        </button>
+        <!-- Parte Modal del botón de arriba para que nos aparezca la ventana preguntando -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-exclamation-triangle"></i></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                ¿Estás seguro de borrar el proveedor?
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button (click)="borrarProveedor(proveedor._id)" type="button" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>

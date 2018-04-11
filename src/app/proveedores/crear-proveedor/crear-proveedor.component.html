@@ -1,0 +1,65 @@
+<div class="col-md-12">
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <!-- Ponemos la ruta a inicio -->
+    <li class="breadcrumb-item"><a routerLink="/inicio">Inicio</a></li>
+    <!-- Ponemos la ruta a compras -->
+    <li class="breadcrumb-item"><a routerLink="/compras">Compras</a></li>
+    <li class="breadcrumb-item"><a routerLink="/listado-proveedores">Proveedores</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Añadir proveedores</li>
+  </ol>
+</nav>
+</div>
+<div class="col-md-12 titulo">
+  <span>Añadir nuevo proveedor</span>
+  <button class="btn btn-primary"
+          routerLink="/listado-proveedores">
+    Volver
+  </button>
+</div>
+<div class="col-md-8 offset-md-2 col-12">
+  <div class="formulario">
+    <form [formGroup]="proveedorForm" (ngSubmit)="crearProv()">
+      <div class="form-group">
+        <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre">
+      </div>
+      <div class="form-group">
+        <!-- #cif para poner el foco cuando se produce el error de repetir el cif -->
+        <input type="text" class="form-control" formControlName="cif" placeholder="CIF" #cif>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" formControlName="domicilio" placeholder="Domicilio">
+      </div>
+      <div class="form-group">
+        <input type="number" class="form-control" formControlName="cp" placeholder="Código Postal">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" formControlName="localidad" placeholder="Localidad">
+      </div>
+      <div class="form-group">
+        <select class="form-control" formControlName="provincia">
+          <option *ngFor="let provincia of provincias" [value]="provincia">{{provincia}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" formControlName="telefono" placeholder="Teléfono">
+      </div>
+      <div class="form-group">
+        <input type="email" class="form-control" formControlName="email" placeholder="e-mail">
+      </div>
+      <div class="form-group">
+        <input type="texto" class="form-control" formControlName="contacto" placeholder="Contacto">
+      </div>
+      <button type="submit" class="btn btn-primary">
+        <!-- Mientras esté enviando nos aparezca un spinner dando vueltas y si no nos aparezca Añadir Proveedor -->
+        <span *ngIf="!enviando">Añadir Proveedor</span>
+        <span *ngIf="enviando"><i class="fas fa-spinner fa-pulse"></i></span>
+      </button>
+      <button routerLink="/listado-proveedores" class="btn btn-primary" class="btn btn-danger">
+        Cancelar
+      </button>
+    </form>
+    <!-- Mensaje que aparece cuando se produce un error al crear un proveedor -->
+    <p class="alert alert-warning" [@alerta]="estadoAlerta">{{mensaje}}</p>
+  </div>
+</div>
