@@ -52,3 +52,44 @@
 .formulario {
     padding: 20px 20px 40px;    
 }
+
+.formulario {
+    border: 1px solid grey;
+    box-shadow: 3px 3px 3px grey;
+    padding: 20px;
+    margin: 20px;
+}
+
+.row {
+    margin-top: 10px;
+}
+
+.radiobotones {
+    padding-top: 26px;
+}
+
+.verde {
+    color: green;
+}
+
+.carmesi {
+    color: crimson;
+}
+
+.tabla-facturas th:nth-child(1), .tabla-facturas td:nth-child(1) {
+    width: 40%;
+}
+
+.tabla-facturas th:nth-child(2), .tabla-facturas td:nth-child(2) {
+    width: 25%;
+}
+
+.tabla-facturas th:nth-child(3), .tabla-facturas td:nth-child(3) {
+    text-align: right;
+    width: 15%;
+}
+
+.tabla-facturas th:nth-child(4), .tabla-facturas td:nth-child(4) {
+    text-align: center;
+    width: 20%;
+}

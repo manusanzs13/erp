@@ -26,7 +26,7 @@ export class EditarProvComponent implements OnInit {
               private proveedoresService: ProveedoresService,
               private router: Router,
               private route: ActivatedRoute) {
-                // Si cuando cargue la página el proveedor no tiene valor entonces le decimmos que está vacio
+                // Si cuando cargue la página el proveedor no tiene valor entonces le decimos que está vacio
                 // y así nos carga sobre eso y no nos aparece el error de que está undefined
                 if(!this.proveedor){
                   this.proveedor = {};

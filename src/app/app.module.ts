@@ -17,6 +17,10 @@ import { CabeceraComponent } from './cabecera/cabecera.component';
 import { ProveedoresService } from './servicios/proveedores.service';
 import { CrearProveedorComponent } from './proveedores/crear-proveedor/crear-proveedor.component';
 import { EditarProvComponent } from './proveedores/editar-prov/editar-prov.component';
+import { ListadoFactComponent } from './facturas/listado-fact/listado-fact.component';
+import { EditarFactComponent } from './facturas/editar-fact/editar-fact.component';
+import { CrearFactComponent } from './facturas/crear-fact/crear-fact.component';
+import { FacturasService } from './servicios/facturas.service';
 
 // Declaramos la constante rutas (array) para utlizarla en el routing
 const rutas:Routes = [
@@ -25,7 +29,10 @@ const rutas:Routes = [
   {path:'compras', component: ComprasComponent},
   {path:'listado-proveedores', component: ListadoProvComponent},
   {path:'crear-proveedor', component: CrearProveedorComponent},
-  {path:'editar-proveedor/:id', component: EditarProvComponent}, 
+  {path:'editar-proveedor/:id', component: EditarProvComponent},
+  {path:'listado-factura', component: ListadoFactComponent},
+  {path:'crear-factura', component: CrearFactComponent},
+  {path:'editar-factura/:id', component: EditarFactComponent},  
   {path:'**', component: InicioComponent}
 ]
 
@@ -37,7 +44,10 @@ const rutas:Routes = [
     ListadoProvComponent,
     CabeceraComponent,
     CrearProveedorComponent,
-    EditarProvComponent
+    EditarProvComponent,
+    ListadoFactComponent,
+    EditarFactComponent,
+    CrearFactComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +56,7 @@ const rutas:Routes = [
     ReactiveFormsModule, //Importación
     BrowserAnimationsModule // Importación
   ],
-  providers: [ProveedoresService],
+  providers: [ProveedoresService, FacturasService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
