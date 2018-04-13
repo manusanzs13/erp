@@ -1,62 +1,75 @@
+<div class="barra-fija">
+  <div title="proveedores" routerLink="/listado-proveedores">
+    <i class="fas fa-address-book"></i>
+  </div>
+  <div title="facturas" routerLink="/listado-factura">
+    <i class="far fa-money-bill-alt"></i>
+  </div>
+</div>
 <div class="col-md-12">
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a routerLink="/inicio">Inicio</a></li>
-        <li class="breadcrumb-item"><a routerLink="/compras">Compras</a></li>
-        <li class="breadcrumb-item"><a routerLink="/listado-proveedores">Proveedores</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Editar proveedores</li>
-      </ol>
-    </nav>
-    </div>
-    <div class="col-md-12 titulo">
-      <span>Editar proveedor</span>
-      <button class="btn btn-primary"
-              routerLink="/listado-proveedores">
-        Volver
-      </button>
-    </div>
-    <div class="col-md-8 offset-md-2 col-12">
-      <div class="formulario">
-        <form [formGroup]="proveedorForm" (ngSubmit)="editarProv()">
-          <div class="form-group">
-            <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre" [ngModel]="proveedor.nombre">
-          </div>
-          <div class="form-group">
-            <input type="text" class="form-control" formControlName="cif" placeholder="CIF" [ngModel]="proveedor.cif">
-          </div>
-          <div class="form-group">
-            <input type="text" class="form-control" formControlName="domicilio" placeholder="Domicilio" [ngModel]="proveedor.domicilio">
-          </div>
-          <div class="form-group">
-            <input type="number" class="form-control" formControlName="cp" placeholder="Código Postal" [ngModel]="proveedor.cp">
-          </div>
-          <div class="form-group">
-            <input type="text" class="form-control" formControlName="localidad" placeholder="Localidad" [ngModel]="proveedor.localidad">
-          </div>
-          <div class="form-group">
-            <select class="form-control" formControlName="provincia" [ngModel]="proveedor.provincia">
-              <!-- En este caso como viene de un objeto se ngValue, value es solo para string -->
-              <option *ngFor="let provincia of provincias" [ngValue]="provincia">{{provincia}}</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <input type="text" class="form-control" formControlName="telefono" placeholder="Teléfono" [ngModel]="proveedor.telefono">
-          </div>
-          <div class="form-group">
-            <input type="email" class="form-control" formControlName="email" placeholder="e-mail" [ngModel]="proveedor.email">
-          </div>
-          <div class="form-group">
-            <input type="texto" class="form-control" formControlName="contacto" placeholder="Contacto" [ngModel]="proveedor.contacto">
-          </div>
-          <button type="submit" class="btn btn-primary">
-            <span>Guardar Cambios</span>
-            <!-- <span *ngIf="enviando"><i class="fas fa-spinner fa-pulse"></i></span> -->
-          </button>
-          <button routerLink="/listado-proveedores" class="btn btn-primary" class="btn btn-danger">
-            Cancelar
-          </button>
-        </form>
-        <!-- Mensaje que aparece cuando se produce un error al crear un proveedor -->
-        <!-- <p class="alert alert-warning" [@alerta]="estadoAlerta">{{mensaje}}</p> -->
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a routerLink="/inicio">Inicio</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a routerLink="/compras">Compras</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a routerLink="/listado-proveedores">Proveedores</a>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">Editar proveedores</li>
+    </ol>
+  </nav>
+</div>
+<div class="col-md-12 titulo">
+  <span>Editar proveedor</span>
+  <button class="btn btn-primary" routerLink="/listado-proveedores">
+    Volver
+  </button>
+</div>
+<div class="col-md-8 offset-md-2 col-12">
+  <div class="formulario">
+    <form [formGroup]="proveedorForm" (ngSubmit)="editarProv()">
+      <div class="form-group">
+        <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre" [ngModel]="proveedor.nombre">
       </div>
-    </div>
+      <div class="form-group">
+        <input type="text" class="form-control" formControlName="cif" placeholder="CIF" [ngModel]="proveedor.cif">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" formControlName="domicilio" placeholder="Domicilio" [ngModel]="proveedor.domicilio">
+      </div>
+      <div class="form-group">
+        <input type="number" class="form-control" formControlName="cp" placeholder="Código Postal" [ngModel]="proveedor.cp">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" formControlName="localidad" placeholder="Localidad" [ngModel]="proveedor.localidad">
+      </div>
+      <div class="form-group">
+        <select class="form-control" formControlName="provincia" [ngModel]="proveedor.provincia">
+          <!-- En este caso como viene de un objeto se ngValue, value es solo para string -->
+          <option *ngFor="let provincia of provincias" [ngValue]="provincia">{{provincia}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" formControlName="telefono" placeholder="Teléfono" [ngModel]="proveedor.telefono">
+      </div>
+      <div class="form-group">
+        <input type="email" class="form-control" formControlName="email" placeholder="e-mail" [ngModel]="proveedor.email">
+      </div>
+      <div class="form-group">
+        <input type="texto" class="form-control" formControlName="contacto" placeholder="Contacto" [ngModel]="proveedor.contacto">
+      </div>
+      <button type="submit" class="btn btn-primary">
+        <span>Guardar Cambios</span>
+        <!-- <span *ngIf="enviando"><i class="fas fa-spinner fa-pulse"></i></span> -->
+      </button>
+      <button routerLink="/listado-proveedores" class="btn btn-primary" class="btn btn-danger">
+        Cancelar
+      </button>
+    </form>
+    <!-- Mensaje que aparece cuando se produce un error al crear un proveedor -->
+    <!-- <p class="alert alert-warning" [@alerta]="estadoAlerta">{{mensaje}}</p> -->
+  </div>
+</div>

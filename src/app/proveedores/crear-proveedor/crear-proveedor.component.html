@@ -1,19 +1,32 @@
+<div class="barra-fija">
+  <div title="proveedores" routerLink="/listado-proveedores">
+    <i class="fas fa-address-book"></i>
+  </div>
+  <div title="facturas" routerLink="/listado-factura">
+    <i class="far fa-money-bill-alt"></i>
+  </div>
+</div>
 <div class="col-md-12">
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <!-- Ponemos la ruta a inicio -->
-    <li class="breadcrumb-item"><a routerLink="/inicio">Inicio</a></li>
-    <!-- Ponemos la ruta a compras -->
-    <li class="breadcrumb-item"><a routerLink="/compras">Compras</a></li>
-    <li class="breadcrumb-item"><a routerLink="/listado-proveedores">Proveedores</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Añadir proveedores</li>
-  </ol>
-</nav>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <!-- Ponemos la ruta a inicio -->
+      <li class="breadcrumb-item">
+        <a routerLink="/inicio">Inicio</a>
+      </li>
+      <!-- Ponemos la ruta a compras -->
+      <li class="breadcrumb-item">
+        <a routerLink="/compras">Compras</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a routerLink="/listado-proveedores">Proveedores</a>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">Añadir proveedores</li>
+    </ol>
+  </nav>
 </div>
 <div class="col-md-12 titulo">
   <span>Añadir nuevo proveedor</span>
-  <button class="btn btn-primary"
-          routerLink="/listado-proveedores">
+  <button class="btn btn-primary" routerLink="/listado-proveedores">
     Volver
   </button>
 </div>
@@ -53,7 +66,9 @@
       <button type="submit" class="btn btn-primary">
         <!-- Mientras esté enviando nos aparezca un spinner dando vueltas y si no nos aparezca Añadir Proveedor -->
         <span *ngIf="!enviando">Añadir Proveedor</span>
-        <span *ngIf="enviando"><i class="fas fa-spinner fa-pulse"></i></span>
+        <span *ngIf="enviando">
+          <i class="fas fa-spinner fa-pulse"></i>
+        </span>
       </button>
       <button routerLink="/listado-proveedores" class="btn btn-primary" class="btn btn-danger">
         Cancelar
