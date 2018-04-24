@@ -68,6 +68,7 @@ export class ListadoProvComponent implements OnInit {
               this.mostrarAlerta = false;
             }, 3000);
           },(error:any)=> {
+            console.log(error);
             // Vemos el error y mostramos mensaje durante 3 segundos
             this.mensaje = "Error de conexión con el servidor";
             this.mostrarAlerta= true;
