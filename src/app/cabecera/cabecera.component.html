@@ -6,25 +6,11 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarCollapse">
     <ul class="navbar-nav ml-auto">
-      <!-- Con lo siguiente se pone la clase activo (active) al que esté activo en cada momento -->
-      <!-- Estar activo cuando de verdad estas activo -->
-      <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
-        <!-- Como inicio es la página principal se pone como raiz -->
-        <a class="nav-link" routerLink="/">Inicio <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item"  routerLinkActive="active">
-        <!-- Las rutas son las que hemos puesto en app.module.ts -->
-        <a class="nav-link" routerLink="/ventas">Ventas</a>
-      </li>
-      <li class="nav-item"  routerLinkActive="active">
-        <a class="nav-link" routerLink="/compras">Compras</a>
-      </li>
-      <li class="nav-item"  routerLinkActive="active">
-        <a class="nav-link" routerLink="/contabilidad">Contabilidad</a>
-      </li>
-      <li class="nav-item"  routerLinkActive="active">
-        <a class="nav-link" routerLink="/recursos-humanos">Recursos Humanos</a>
-      </li>
+      <div class="sesion">
+        <span *ngIf="autenticacionService.nombre"><i class="fas fa-user-circle"></i> {{autenticacionService.nombre}}</span>
+        <button *ngIf="!getLogged()" class="btn btn-primary" routerLink="/inicio-sesion">Inicio sesión</button>
+        <button *ngIf="getLogged()" class="btn btn-primary" (click)="autenticacionService.logout()">Cerrar sesión</button>
+      </div>
     </ul>
   </div>
 </nav>

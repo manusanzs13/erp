@@ -29,6 +29,10 @@
 .azul:hover {background-color: #4896da;}
 .azul span {color: #3a7ab3;}
 
+.naranja {background-color: #ca6248;}
+.naranja:hover {background-color: #dd6b48;}
+.naranja span {color: #b8583b;}
+
 .box span {
     font-size: 80px;
 }
@@ -68,11 +72,11 @@
     padding-top: 26px;
 }
 
-.verde {
+.valido {
     color: green;
 }
 
-.carmesi {
+.no-valido {
     color: crimson;
 }
 
@@ -126,6 +130,127 @@
     margin-left: 100px;
 }
 
-.breadcrumb {
+.breadcrumb, .autenticacion {
     margin-top: 80px;
+}
+
+.sesion {
+    display: flex;
+    align-items: center;
+}
+
+.sesion span {
+    color: rgb(102, 102, 102);
+    font-size: 22px;
+    margin-right: 10px;
+}
+
+.cabecera {
+    display: flex;
+    width: 100%;
+}
+
+.cabecera .campo {
+    margin: 0px 5px;
+    height: 40px;
+}
+
+.cabecera .campo:nth-child(1) {width: 30%;}
+.cabecera .campo:nth-child(2) {width: 30%;}
+.cabecera .campo:nth-child(3) {width: 30%;}
+.cabecera .campo:nth-child(4) {width: 10%;}
+
+.cabecera .campo p {
+    font-weight: bold;
+}
+
+.fila {
+    display: flex;
+    width: 100%;
+}
+
+.fila .campo {
+    margin: 5px;
+    height: 40px;
+    border-bottom: 1px solid lightgray;
+}
+
+.fila .campo:nth-child(1) {width: 30%;}
+.fila .campo:nth-child(2) {width: 30%;}
+.fila .campo:nth-child(3) {width: 30%;}
+.fila .campo:nth-child(4) {
+    width: 10%;
+    border-bottom: none;
+}
+
+.fila .nuevo {
+    margin: 5px;
+    height: 40px;
+    border-bottom: 1px solid lightgray;
+}
+
+.fila .nuevo:nth-child(1) {width: 20%;}
+.fila .nuevo:nth-child(2) {width: 20%;}
+.fila .nuevo:nth-child(3) {width: 20%;}
+.fila .nuevo:nth-child(4) {
+    width: 20%;
+    border-bottom: none;
+}
+.fila .nuevo:nth-child(5) {
+    width: 20%;
+    border-bottom: none;
+}
+
+form.fila:first-child(1) {
+    margin-bottom: 40px;
+}
+
+.fila input {
+    width: 100%;
+    margin: 0;
+    height: 40px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid lightgray;
+}
+
+.fila input:focus {
+    outline: none;
+    border-bottom: 2px solid crimson;
+}
+
+.fila select {
+    height: 40px;
+}
+
+.fila.editable .campo {
+    margin: 5px;
+    height: 40px;
+    border-bottom: 1px solid lightgray;
+}
+
+.fila.editable .campo:nth-child(1) {
+    width: 30%;
+    border-bottom: none;
+}
+.fila.editable .campo:nth-child(2) {
+    width: 30%;
+    border-bottom: none;
+}
+.fila.editable .campo:nth-child(3) {
+    width: 30%;
+    border-bottom: none;
+}
+.fila.editable .campo:nth-child(4) {
+    width: 10%;
+    border-bottom: none;
+}
+
+.fila.editable input {
+    padding: 0 0 16px 0;
+}
+
+.fila.editable select {
+    width: 100%;
 }

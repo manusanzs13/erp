@@ -25,7 +25,7 @@
   <span>Proveedores</span>
   <!-- Mensaje que aparece cuando borramos un proveedor -->
   <span class="alert alert-warning" [@alerta]="estadoAlerta">{{mensaje}}</span>
-  <button class="btn btn-primary" routerLink="/crear-proveedor">
+  <button class="btn btn-primary" routerLink="/crear-proveedor" *ngIf="autenticacionService.getPermProveedores()">
     <i class="fas fa-plus-circle"></i>
   </button>
 </div>
@@ -44,10 +44,16 @@
       <td>
         <!-- Con este botón actualizamos el proveedor que elijamos para modificar llendo al formulario exacto de cada parámetro -->
         <button class="btn btn-success" routerLink="/editar-proveedor/{{proveedor._id}}">
-          <i class="fas fa-pen-square"></i>
+          <span  *ngIf="autenticacionService.getPermProveedores()">
+            <i class="fas fa-pen-square"></i>
+          </span>
+          <span  *ngIf="!autenticacionService.getPermProveedores()">
+            <i class="fas fa-eye"></i>
+          </span>
         </button>
         <!-- Con este botón borramos el proveedor que elijamos mediante su id y nos pregunta en un modal -->
-        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" (click)="obtenerId(proveedor._id)">
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" (click)="obtenerId(proveedor._id)"
+                  *ngIf="autenticacionService.getPermProveedores()">
           <i class="fas fa-trash-alt"></i>
         </button>
         <!-- Parte Modal del botón de arriba para que nos aparezca la ventana preguntando -->

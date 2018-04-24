@@ -5,6 +5,7 @@ import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms'
 import { ProveedoresService } from '../../servicios/proveedores.service';
 // Importamos para la navegación programática
 import { Router, ActivatedRoute } from '@angular/router';
+import { AutenticacionService } from '../../servicios/autenticacion.service';
 
 @Component({
   selector: 'app-editar-prov',
@@ -25,7 +26,8 @@ export class EditarProvComponent implements OnInit {
   constructor(private pf: FormBuilder,
               private proveedoresService: ProveedoresService,
               private router: Router,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private autenticacionService: AutenticacionService) {
                 // Si cuando cargue la página el proveedor no tiene valor entonces le decimos que está vacio
                 // y así nos carga sobre eso y no nos aparece el error de que está undefined
                 if(!this.proveedor){

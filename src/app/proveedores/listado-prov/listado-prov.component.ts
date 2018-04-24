@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProveedoresService } from '../../servicios/proveedores.service';
 // Elementos para una animación
 import { trigger, state, style, animate, transition } from '@angular/animations';
+import { AutenticacionService } from '../../servicios/autenticacion.service';
 
 @Component({
   selector: 'app-listado-prov',
@@ -28,7 +29,8 @@ export class ListadoProvComponent implements OnInit {
   mostrarAlerta:boolean = false;
 
   // Iniciar el servicio
-  constructor(private proveedoresService: ProveedoresService) { }
+  constructor(private proveedoresService: ProveedoresService,
+              private autenticacionService: AutenticacionService) { }
 
   ngOnInit() {
     // Cargue el método cuando se inicie la app

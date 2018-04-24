@@ -5,11 +5,17 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
+import { AutenticacionService } from './autenticacion.service';
 
 @Injectable()
 export class ProveedoresService {
 
-  constructor(private http: HttpClient) { }
+  token:string;
+
+  constructor(private http: HttpClient,
+              private autenticacionService: AutenticacionService) { 
+                  this.token = autenticacionService.token;
+            }
 
   getProveedores() {
     // Obtenemos los proveedores llamando a la url donde nos lo muestra el servidor backend de node-express
@@ -29,7 +35,8 @@ export class ProveedoresService {
               });
   }
 
-  // Método para añadir un proveedor a la base de datos
+  // Método para añadir un proveedor a la base de datos y comprobar 
+  // que se hace con el usuario correcto a través del token
   postProveedor(proveedor) {
     let url = 'http://localhost:3000/proveedor';
     return this.http.post(url, proveedor)
@@ -48,10 +55,11 @@ export class ProveedoresService {
                 });
   }
 
-  // Método paara borrar un proveedor de la base de datos
+  // Método para borrar un proveedor de la base de datos y comprobar 
+  // que se hace con el usuario correcto a través del token
   deleteProveedor(id) {
-    let url = 'http://localhost:3000/proveedor/';
-    return this.http.delete(url + id)
+    let url = 'http://localhost:3000/proveedor/' + id + '?token=' + this.token;
+    return this.http.delete(url)
                 .map((resp:any)=> {
                   return resp;
                 });
