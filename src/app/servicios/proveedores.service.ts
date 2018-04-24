@@ -13,9 +13,7 @@ export class ProveedoresService {
   token:string;
 
   constructor(private http: HttpClient,
-              private autenticacionService: AutenticacionService) { 
-                  this.token = autenticacionService.token;
-            }
+              private autenticacionService: AutenticacionService) { }
 
   getProveedores() {
     // Obtenemos los proveedores llamando a la url donde nos lo muestra el servidor backend de node-express
@@ -58,6 +56,7 @@ export class ProveedoresService {
   // Método para borrar un proveedor de la base de datos y comprobar 
   // que se hace con el usuario correcto a través del token
   deleteProveedor(id) {
+    this.token = this.autenticacionService.token;
     let url = 'http://localhost:3000/proveedor/' + id + '?token=' + this.token;
     return this.http.delete(url)
                 .map((resp:any)=> {

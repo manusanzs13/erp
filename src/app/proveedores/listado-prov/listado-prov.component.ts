@@ -25,7 +25,7 @@ export class ListadoProvComponent implements OnInit {
   // id del proveedor para borrarlo luego
   id:string;
   // Para los mensajes de la navegación programática
-  mensaje:string;
+  mensaje:string = "Error de conexión con el servidor";
   mostrarAlerta:boolean = false;
 
   // Iniciar el servicio
@@ -68,14 +68,18 @@ export class ListadoProvComponent implements OnInit {
               this.mostrarAlerta = false;
             }, 3000);
           },(error:any)=> {
-            console.log(error);
             // Vemos el error y mostramos mensaje durante 3 segundos
-            this.mensaje = "Error de conexión con el servidor";
+            if (error.error.mensaje === 'Token incorrecto') {
+            this.mensaje = "Su sesión ha caducado, reinicie sesión"
+            }
             this.mostrarAlerta= true;
             setTimeout(()=> {
               this.mostrarAlerta = false;
             }, 3000);
           })
+    setTimeout(()=> {
+      this.mensaje = "Error de conexión con el servidor";
+    }, 3000);
   }
 
 }
